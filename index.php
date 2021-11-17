@@ -31,7 +31,7 @@
                         <h3>Get more things done with Loggin platform.</h3>
                         <p>Access to the most powerfull tool in the entire design and web industry.</p>
                         <div class="page-links">
-                            <a href="login4.html" class="active">Se connecté</a><a href="register4.html">S'ebregistrer</a>
+                            <a href="controller/login.php" class="active">Se connecté</a><a href="controller/register.php">S'ebregistrer</a>
                         </div>
                         <form>
                             <input class="form-control" type="text" name="username" placeholder="E-mail Address" required>

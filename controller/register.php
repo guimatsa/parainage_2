@@ -13,8 +13,8 @@
         $nom = sanitaze($_POST['name']);
         $password = sanitaze($_POST['password']);
         $cpassword = sanitaze($_POST['cpassword']);
-        echo $filiere = sanitaze($_POST['filiere']);
-        echo $niveau = sanitaze($_POST['niveau']);
+        $filiere = sanitaze($_POST['filiere']);
+        $niveau = sanitaze($_POST['niveau']);
         $email = sanitaze($_POST['email']);
 
         if(empty($nom)){
@@ -42,7 +42,7 @@
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $errors['email'] = "Email invalide";
         }
-        $verif_email = $db->query("SELECT * FROM l1 WHERE email='$email'");
+        $verif_email = $db->query("SELECT email FROM l1 WHERE email='$email'");
         $email_result = mysqli_num_rows($verif_email);
         if($email_result==1){
             $errors['email'] = "Cet adresse email est déjà utilisé.";
@@ -57,13 +57,18 @@
             $ligne = $req->fetch_assoc();
             $num_parainage = rand(1,10);
             $active=0;
+            echo $today = date("Y-m-d H:i:s"); 
 
             if($row==TRUE){
-                $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$password', '$email', '$num_parainage', 'null', '$niveau', '$active, getTimestamp())");
+                $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$password', '$email', '', '$filiere', '$niveau', '$active', '$today')");
                 $nom_p = $ligne['nom_p'];
                 $id_p = $ligne['id'];
-                $maj = $db->query("UPDATE l1 SET nom_parain='$nom_p' WHERE nom='$nom'");
-                $updatel2 = $db->query("UPDATE l2 SET filleule='$nom' WHERE id=$id_p");
+                if($add_user==1){
+                    $maj = $db->query("UPDATE l1 SET nom_parain='$nom_p' WHERE nom='$nom'");
+                    $updatel2 = $db->query("UPDATE l2 SET filleule='$nom' WHERE id=$id_p");
+                }else{
+                    echo "Erreur lors de lenregistrement";
+                }
             }else{
                 echo "plus de parain disponible...";
             }
