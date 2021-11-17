@@ -24,7 +24,7 @@
                         <h3>Inscription</h3>
                         <p>Plateforme de parainage des etudiants de l'IAI centre de Douala.</p>
                         <div class="page-links">
-                            <a href="login4.html">Connexion</a><a href="register4.html" class="active">Inscription</a>
+                            <a href="../controller/login.php">Connexion</a><a href="../controller/register.php" class="active">Inscription</a>
                         </div>
                         <form method="POST">
                             <label for="name" class="form-label">Nom et Prénom complet :</label>

@@ -57,7 +57,7 @@
             $ligne = $req->fetch_assoc();
             $num_parainage = rand(1,10);
             $active=0;
-            echo $today = date("Y-m-d H:i:s"); 
+            $today = date("Y-m-d H:i:s"); 
 
             if($row==TRUE){
                 $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$password', '$email', '', '$filiere', '$niveau', '$active', '$today')");
