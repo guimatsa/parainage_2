@@ -25,7 +25,7 @@
                             <input class="form-control" type="text" name="username" placeholder="E-mail">
                             <input class="form-control" type="password" name="password" placeholder="Mot de passe">
                             <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Connexion</button> <a href="forget4.html">Mot de passe oublier?</a>
+                                <button id="submit" type="submit" class="ibtn">Connexion</button> <a href="../controller/forget.php">Mot de passe oublier?</a>
                             </div>
                         </form>
                     </div>
