@@ -47,7 +47,7 @@
                             </select>
                             <?= display_errors($errors, 'niveau')?>
                             <div class="form-button">
-                                <button id="submit" type="submit" class="btn btn-primary" name="reg">S'enregistrer</button>
+                                <button id="submit" type="submit" class="btn btn-primary" name="submit">S'enregistrer</button>
                             </div>
                         </form>
 
