@@ -6,7 +6,7 @@
         <div class="website-logo">
             <a href="index.html">
                 <div class="logo">
-                    <img class="logo-size" src="../assets/images/Python.png" alt="">
+                    <img class="logo-size" src="../assets/images/iailogo.png" alt="">
                     ACCEUIL
                 </div>
             </a>
@@ -15,7 +15,7 @@
             <div class="img-holder">
                 <div class="bg"></div>
                 <div class="info-holder">
-                    <img src="../assets/images/Python.png" alt="">
+                    <img src="../assets/images/iailogo.png" alt="">
                 </div>
             </div>
             <div class="form-holder">
@@ -27,20 +27,30 @@
                             <a href="login4.html">Connexion</a><a href="register4.html" class="active">Inscription</a>
                         </div>
                         <form method="POST">
+                            <label for="name" class="form-label">Nom et Prénom complet :</label>
                             <input class="form-control" type="text" name="name" value="<?= get_data($_POST, 'name')?>" placeholder="Nom complet">
                             <?= display_errors($errors, 'name')?>
-                            <input class="form-control" type="email" name="email" value="<?= get_data($_POST, 'email')?>" placeholder="Votre adresse E-mail ">
+
+                            <label for="email" class="form-label">Email:</label>
+                            <input class="form-control" type="email" name="email" value="<?= get_data($_POST, 'email')?>" placeholder="Ex. azerty@xyz.com">
                             <?= display_errors($errors, 'email')?>
-                            <input class="form-control" type="password" name="password" value="<?= get_data($_POST, 'password')?>" placeholder="Definissez votre Mot de passe">
+
+                            <label for="password" class="form-label">Mot de passe :</label>
+                            <input class="form-control" type="password" name="password" value="<?= get_data($_POST, 'password')?>" placeholder="Mot de passe">
                             <?= display_errors($errors, 'password')?>
-                            <p>Selectionner votre filière</p>
+
+                            <label for="password" class="form-label">Confirmer votre mot de passe :</label>
+                            <input class="form-control" type="password" name="cpassword" value="<?= get_data($_POST, 'cpassword')?>" placeholder="Confirmer votre mot de passe">
+                            <?= display_errors($errors, 'cpassword')?>
+
+                            <label for="filiere" class="form-label">Filière :</label>
                             <select name="filiere" id="filiere" class="form-control">
                                 <option value="GL">Génie Logiciel</option>
                                 <option value="SR">Système et réseaux</option>
                             </select>
                             <?= display_errors($errors, 'filiere')?>
-                            <label for="niveau"></label>
-                            <p>Selectionner votre niveau</p>
+                            
+                            <label for="niveau" class="form-label">Niveau :</label>
                             <select name="niveau" id="niveau" class="form-control">
                                 <option value="l1">Niveau 1</option>
                                 <option value="l2">Niveau 2</option>
