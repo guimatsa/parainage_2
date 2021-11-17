@@ -5,20 +5,20 @@ require_once 'includes/db.php';
 var_dump($_POST);
 
  $num_parainage = rand(1, 10);
-if(isset($_POST['reg']))
+if(isset($_POST['re']))
 
 $parain = $db->query("SELECT * FROM l1 WHERE num_parainage=$num_parainage");
 $parain2 = $db->query("SELECT * FROM l1 WHERE nom_parain=null");
 
-$row = mysqli_num_rows($parain);
-$row2 = mysqli_num_rows($parain2);
+// $row = mysqli_num_rows($parain);
+// $row2 = mysqli_num_rows($parain2);
 
 $req = $db->query("SELECT * FROM l2 WHERE filleule as null");
 
 $row = mysqli_num_rows($req);
 
 $ligne = $req->fetch_assoc();
-if($row==1){
+if($row==TRUE){
     echo "Disponible";
     echo $ligne['nom_p'];
 
