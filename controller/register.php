@@ -6,13 +6,13 @@
 
     $errors=[];
 
-    $nom = sanitaze($_POST['name']);
-    $password = $_POST['password'];
-    $filiere = $_POST['filiere'];
-    $niveau = $_POST['niveau'];
-    $email = $_POST['email'];
+    // $nom = sanitaze($_POST['name']);
+    // $password = $_POST['password'];
+    // $filiere = $_POST['filiere'];
+    // $niveau = $_POST['niveau'];
+    // $email = $_POST['email'];
 
-
+    
 
     require_once "../view/register_view.php";
 

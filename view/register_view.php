@@ -6,7 +6,7 @@
         <div class="website-logo">
             <a href="index.html">
                 <div class="logo">
-                    <img class="logo-size" src="images/1Python.png" alt="">
+                    <img class="logo-size" src="../assets/images/Python.png" alt="">
                     ACCEUIL
                 </div>
             </a>
@@ -15,7 +15,7 @@
             <div class="img-holder">
                 <div class="bg"></div>
                 <div class="info-holder">
-                    <img src="images/1Python.png" alt="">
+                    <img src="../assets/images/Python.png" alt="">
                 </div>
             </div>
             <div class="form-holder">
@@ -33,11 +33,19 @@
                             <?= display_errors($errors, 'email')?>
                             <input class="form-control" type="password" name="password" value="<?= get_data($_POST, 'password')?>" placeholder="Definissez votre Mot de passe">
                             <?= display_errors($errors, 'password')?>
-                            <input class="form-control" type="text" name="filiere" value="<?= get_data($_POST, 'filiere')?>" placeholder="filiere">
+                            <p>Selectionner votre filière</p>
+                            <select name="filiere" id="filiere" class="form-control">
+                                <option value="GL">Génie Logiciel</option>
+                                <option value="SR">Système et réseaux</option>
+                            </select>
                             <?= display_errors($errors, 'filiere')?>
-                            <input class="form-control" type="text" name="niveau" value="<?= get_data($_POST, 'niveau')?>" placeholder="niveau">
+                            <label for="niveau"></label>
+                            <p>Selectionner votre niveau</p>
+                            <select name="niveau" id="niveau" class="form-control">
+                                <option value="l1">Niveau 1</option>
+                                <option value="l2">Niveau 2</option>
+                            </select>
                             <?= display_errors($errors, 'niveau')?>
-
                             <div class="form-button">
                                 <button id="submit" type="submit" class="btn btn-primary" name="reg">S'enregistrer</button>
                             </div>
