@@ -12,6 +12,8 @@
     $niveau = $_POST['niveau'];
     $email = $_POST['email'];
 
+
+
     require_once "../view/register_view.php";
 
 

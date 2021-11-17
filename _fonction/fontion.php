@@ -28,4 +28,8 @@
         HTML;
     }
 
+    function get_data($tableData, $field){
+        if(!isset($tableData[$field])) return '';
+        return htmlentities($tableData[$field]);
+    }
 ?>
