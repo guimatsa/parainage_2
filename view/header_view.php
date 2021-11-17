@@ -14,7 +14,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
           <li><a class="nav-link scrollto" href="#about">À propos</a></li>
           <li><a class="nav-link scrollto" href="#team">Équipe</a></li>
-          <li><a class="nav-link scrollto" href="#">connexion</a></li>
+          <li><a class="nav-link scrollto" href="controller/login.php">connexion</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

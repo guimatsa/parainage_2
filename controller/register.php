@@ -81,6 +81,6 @@
 
     require_once "../view/register_view.php";
 
-    require_once "../view/footer_view.php";
+    // require_once "../view/footer_view.php";
 
 ?>
