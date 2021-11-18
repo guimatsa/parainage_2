@@ -4,9 +4,6 @@
 
     require_once "../view/head_view.php";
 
-    require_once "../view/head_view_index.php";
-    require_once "../view/header_view.php";
-
     require_once "../_fonction/fontion.php";
 
     
@@ -43,9 +40,11 @@
             if(password_verify($password, $dpassword)){
                 header('location:../home.php');
                 $_SESSION['email']=$email;
+                $_SESSION['nom']=$nom;
             }else if(password_verify($password, $dpassword2)){
                 $_SESSION['email']=$email;
                 header('location:../home.php');
+                $_SESSION['nom']=$nom;
             }
             else{
                 $errors['global']="Email ou mot de passe invalide";

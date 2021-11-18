@@ -65,23 +65,26 @@
             $today = date("Y-m-d H:i:s"); 
             $crypted = password_hash($password, PASSWORD_DEFAULT);
 
-            if($row==TRUE){
-                if($niveau=="l1"){
-                    $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$crypted', '$email', '', '$filiere', '$niveau', '$active', '$today')");
-                    $nom_p = $ligne['nom_p'];
-                    $id_p = $ligne['id'];
-                    if($add_user==1){
-                        $maj = $db->query("UPDATE l1 SET nom_parain='$nom_p' WHERE nom='$nom'");
-                        $updatel2 = $db->query("UPDATE l2 SET filleule='$nom' WHERE id=$id_p");
-                    }else{
-                        echo "Erreur lors de lenregistrement";
-                    }
-                }else if($niveau=="l2"){
-                    $add_l2 = $db->query("INSERT INTO l2 VALUES(NULL, '$nom', '$email', '$crypted', '', '$today')");
-                }
+            // if($row==TRUE){
+            //     if($niveau=="l1"){
+            //         $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$crypted', '$email', '', '$filiere', '$niveau', '$active', '$today')");
+            //         $nom_p = $ligne['nom_p'];
+            //         $id_p = $ligne['id'];
+            //         if($add_user==1){
+            //             $maj = $db->query("UPDATE l1 SET nom_parain='$nom_p' WHERE nom='$nom'");
+            //             $updatel2 = $db->query("UPDATE l2 SET filleule='$nom' WHERE id=$id_p");
+            //         }else{
+            //             echo "Erreur lors de lenregistrement";
+            //         }
+            //     }
     
+            // }else{
+            //     echo "Vous ne pouvez pas encore vous inscrire...";
+            // }
+            if($niveau=="l2"){
+                $add_l2 = $db->query("INSERT INTO l2 VALUES(NULL, '$nom', '$email', '$crypted', '', '$today')");
             }else{
-                echo "plus de parain disponible...";
+                echo "L'enregistrement du niveau 1 n'est pas encore disponible. Merci de patienter";
             }
         }else{
             $errors['global'] = "Veiller remplir convenablement le formulaire";
