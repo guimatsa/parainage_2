@@ -6,12 +6,12 @@
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
               <h3>LITE CORP</h3>
-              <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea. Qui suscipit veniam excepturi quod.</em></p>
+              <p class="pb-3"><em>Entreprise de developpement d'application adapté a tout type de problèmes.</em></p>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                Situé au Littoral <br>
+                Douala, Cameroun<br><br>
+                <strong>Téléphone:</strong> +237 670883301<br>
+                <strong>Email:</strong> dilanzambou2@gmail.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -26,20 +26,20 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Nos Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Mobil Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement Web</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#"> Developpement mobile</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing digital</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Design Graphique</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>Notre Newsletter</h4>
+        <p>Adonnez vous a notre Newsletter</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Souscrire">
             </form>
 
           </div>

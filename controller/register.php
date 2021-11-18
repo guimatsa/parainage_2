@@ -43,11 +43,16 @@
             $errors['email'] = "Email invalide";
         }
         $verif_email = $db->query("SELECT email FROM l1 WHERE email='$email'");
+        $verif_email2 = $db->query("SELECT email FROM l2 WHERE email='$email'");
         $email_result = mysqli_num_rows($verif_email);
+        $email_result2 = mysqli_num_rows($verif_email2);
         if($email_result==1){
             $errors['email'] = "Cet adresse email est déjà utilisé.";
         }
-
+        $email_result2 = mysqli_num_rows($verif_email2);
+        if($email_result2==1){
+            $errors['email'] = "Cet adresse email est déjà utilisé.";
+        }
         if(empty($errors)){
             //Envoyer un mail a l'utilisateur
             //Enregistrer l'utilisateur en base de donnée
@@ -58,17 +63,23 @@
             $num_parainage = rand(1,10);
             $active=0;
             $today = date("Y-m-d H:i:s"); 
+            $crypted = password_hash($password, PASSWORD_DEFAULT);
 
             if($row==TRUE){
-                $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$password', '$email', '', '$filiere', '$niveau', '$active', '$today')");
-                $nom_p = $ligne['nom_p'];
-                $id_p = $ligne['id'];
-                if($add_user==1){
-                    $maj = $db->query("UPDATE l1 SET nom_parain='$nom_p' WHERE nom='$nom'");
-                    $updatel2 = $db->query("UPDATE l2 SET filleule='$nom' WHERE id=$id_p");
-                }else{
-                    echo "Erreur lors de lenregistrement";
+                if($niveau=="l1"){
+                    $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$crypted', '$email', '', '$filiere', '$niveau', '$active', '$today')");
+                    $nom_p = $ligne['nom_p'];
+                    $id_p = $ligne['id'];
+                    if($add_user==1){
+                        $maj = $db->query("UPDATE l1 SET nom_parain='$nom_p' WHERE nom='$nom'");
+                        $updatel2 = $db->query("UPDATE l2 SET filleule='$nom' WHERE id=$id_p");
+                    }else{
+                        echo "Erreur lors de lenregistrement";
+                    }
+                }else if($niveau=="l2"){
+                    $add_l2 = $db->query("INSERT INTO l2 VALUES(NULL, '$nom', '$email', '$crypted', '', '$today')");
                 }
+    
             }else{
                 echo "plus de parain disponible...";
             }

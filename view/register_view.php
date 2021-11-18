@@ -4,7 +4,7 @@
 <body>
     <div class="form-body">
         <div class="website-logo">
-            <a href="index.html">
+            <a href="../index.php">
                 <div class="logo">
                     <img class="logo-size" src="../assets/images/iailogo.png" alt="">
                     ACCEUIL
