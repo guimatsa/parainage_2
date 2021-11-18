@@ -1,3 +1,6 @@
+<?php 
+    require_once '../_fonction/fontion.php';
+?>
 <div class="form-body">
         <div class="website-logo">
             <a href="index.html">
@@ -16,12 +19,12 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Recupérer votre mot de pase</h3>
-                        <p>Pour reinitialiser votre mot de passe votre de devez entrez votre adresse mail et nous vous enverons un courier </p>
+                        <h3>Activation de votre compte</h3>
+                        <p>Nous vous avons envoyer un code par mail. Veillez svp renseigner ce code </p>
                         <form>
-                            <input class="form-control" type="email" name="email" placeholder="Adresse E-mail " required>
+                            <input class="form-control" type="number" name="code" placeholder="Code otp" required>
                             <div class="form-button full-width">
-                                <button id="submit" type="submit" class="ibtn btn-forget">Envoyer le lien de réinitialisation</button>
+                                <button id="submit" type="submit" class="ibtn btn-forget">Validé le code</button>
                             </div>
                         </form>
                     </div>

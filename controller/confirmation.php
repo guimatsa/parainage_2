@@ -6,4 +6,4 @@
 
     require_once "../_fonction/fontion.php";
 
-    require_once "../view/forget_view.php";
+    require_once "../view/confirmation_view.php";

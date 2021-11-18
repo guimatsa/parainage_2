@@ -32,4 +32,8 @@
         if(!isset($tableData[$field])) return '';
         return htmlentities($tableData[$field]);
     }
+
+    function redirect_to($path){
+        header('location:../home.php');
+    }
 ?>

@@ -7,6 +7,7 @@
     require_once "../_fonction/fontion.php";
 
     
+    session_start();
 
     $errors=[];
 
@@ -36,15 +37,19 @@
             $ligne2=$query_log2->fetch_assoc();
             $dpassword=$ligne['password'];
             $dpassword2=$ligne2['password'];
+            
+            
 
             if(password_verify($password, $dpassword)){
+                $nom=$ligne['nom'];
                 header('location:../home.php');
                 $_SESSION['email']=$email;
-                $_SESSION['nom']=$nom;
+                $nom=$_SESSION['nom'];
             }else if(password_verify($password, $dpassword2)){
+                $nom=$ligne2['nom_p'];
                 $_SESSION['email']=$email;
                 header('location:../home.php');
-                $_SESSION['nom']=$nom;
+                $nom=$_SESSION['nom'];
             }
             else{
                 $errors['global']="Email ou mot de passe invalide";
