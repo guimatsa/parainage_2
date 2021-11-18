@@ -6,4 +6,9 @@
 
     require_once "../_fonction/fontion.php";
 
+    $errors=[];
+
+    if(isset($_POST['submit'])){
+        $code=sanitaze($_POST['code']);
+    }
     require_once "../view/confirmation_view.php";

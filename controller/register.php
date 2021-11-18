@@ -6,6 +6,14 @@
 
     require_once "../_fonction/fontion.php";
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    require '../includes/PHPMailer.php';
+    require '../includes/SMTP.php';
+    require '../includes/Exception.php';
+
 
     $errors=[];
 
@@ -55,37 +63,86 @@
         }
         if(empty($errors)){
             //Envoyer un mail a l'utilisateur
+            $otp_code = rand(999999,100000);
+            $mail = new PHPMailer();
+                    //Set mailer to use smtp
+                        $mail->isSMTP();
+                    //Define smtp host
+                        $mail->Host = "smtp.gmail.com";
+                    //Enable smtp authentication
+                        $mail->SMTPAuth = true;
+                    //Set smtp encryption type (ssl/tls)
+                        $mail->SMTPSecure = "tls";
+                    //Port to connect smtp
+                        $mail->Port = "587";
+                    //Set gmail username
+                        $mail->Username = "Dilanzambou2@gmail.com";
+                    //Set gmail password
+                        $mail->Password = "dllitesoft";
+                    //Email subject
+                        $mail->Subject = "INSCRIPTION SUR LA PLATEFORME DE PARAINAGE DE L'IAI CENTRE DE DOUALA";
+                    //Set sender email
+                        $mail->setFrom('siteofficiel@support.com');
+                    //Enable HTML
+                        $mail->isHTML(true);
+                    //Attachment
+
+                    //    $mail->addAttachment('img/attachment.png');
+
+                    //Email body
+                        $mail->Body = "<h1>Code de confirmation</h1></br>
+                        <p>Suite a votre inscription sur la plateforme de parainage de l'IAI centre de Douala. Votre code de confirmation est $otp_code";
+                   
             //Enregistrer l'utilisateur en base de donnée
 
-            $req = $db->query("SELECT * FROM l2 WHERE filleule IS NULL");
-            $row = mysqli_num_rows($req);
-            $ligne = $req->fetch_assoc();
-            $num_parainage = rand(1,10);
+            
             $active=0;
             $today = date("Y-m-d H:i:s"); 
             $crypted = password_hash($password, PASSWORD_DEFAULT);
 
-            // if($row==TRUE){
-            //     if($niveau=="l1"){
-            //         $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$crypted', '$email', '', '$filiere', '$niveau', '$active', '$today')");
-            //         $nom_p = $ligne['nom_p'];
-            //         $id_p = $ligne['id'];
-            //         if($add_user==1){
-            //             $maj = $db->query("UPDATE l1 SET nom_parain='$nom_p' WHERE nom='$nom'");
-            //             $updatel2 = $db->query("UPDATE l2 SET filleule='$nom' WHERE id=$id_p");
-            //         }else{
-            //             echo "Erreur lors de lenregistrement";
-            //         }
-            //     }
-    
-            // }else{
-            //     echo "Vous ne pouvez pas encore vous inscrire...";
-            // }
-            if($niveau=="l2"){
-                $add_l2 = $db->query("INSERT INTO l2 VALUES(NULL, '$nom', '$email', '$crypted', '', '$today')");
-            }else{
-                echo "L'enregistrement du niveau 1 n'est pas encore disponible. Merci de patienter";
-            }
+                if($niveau=="l1"){
+                    $req = $db->query("SELECT * FROM l2 WHERE filleule IS NULL");
+                    $ligne = $req->fetch_assoc();
+                    ECHO $nom_p = $ligne['nom_p'];
+                    ECHO $id_p = $ligne['id'];
+                    $add_user = $db->query("INSERT INTO l1 VALUES(NULL, '$nom', '$crypted', '$email', '', '$filiere', '$niveau', '$active', '$otp_code', '$today')");
+                     //Add recipient
+                     $mail->addAddress($email);
+                     //Finally send email
+                         if ( $mail->send() ) {
+                             $message='<div class="alert alert-success">Incription en cour vous allez recevoir un code de confirmation par email</div>';
+                           
+                         }else{
+                             $message= '<div class="alert alert-danger"> L\'email n\'a pas été envoyer $mail->ErrorInfo;</div>';
+                         }
+                     //Closing smtp connection
+                         $mail->smtpClose();
+ 
+                    if($add_user==1){
+                        $maj = $db->query("UPDATE l1 SET nom_parain='$nom_p' WHERE nom='$nom'");
+                        $updatel2 = $db->query("UPDATE l2 SET filleule='$nom' WHERE id=$id_p");
+                        echo "Parain attribuer";
+                    }else{
+                        echo "Erreur lors de lenregistrement";
+                    }
+                    ECHO "ok";
+                }else if($niveau=="l2"){
+                    $add_l2 = $db->query("INSERT INTO l2 VALUES(NULL, '$nom', '$email', '$crypted', '', '$today')");
+                     //Add recipient
+                     $mail->addAddress($email);
+                     //Finally send email
+                         if ( $mail->send() ) {
+                             $message='<div class="alert alert-success">Incription en cour vous allez recevoir un code de confirmation par email</div>';
+                           
+                         }else{
+                             $message= '<div class="alert alert-danger"> L\'email n\'a pas été envoyer $mail->ErrorInfo;</div>';
+                         }
+                     //Closing smtp connection
+                         $mail->smtpClose();
+ 
+                }else{
+                    echo "Impossible pour le moment. Merci de patienter";
+                }
         }else{
             $errors['global'] = "Veiller remplir convenablement le formulaire";
         }

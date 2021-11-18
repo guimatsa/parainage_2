@@ -21,8 +21,9 @@
                     <div class="form-items">
                         <h3>Activation de votre compte</h3>
                         <p>Nous vous avons envoyer un code par mail. Veillez svp renseigner ce code </p>
-                        <form>
+                        <form method="POST">
                             <input class="form-control" type="number" name="code" placeholder="Code otp" required>
+                            <?= display_errors($errors, 'name')?>
                             <div class="form-button full-width">
                                 <button id="submit" type="submit" class="ibtn btn-forget">Validé le code</button>
                             </div>
