@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -9,4 +9,11 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/iofrm-theme4.css">
+
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+    <link href="assets/css/style-profil.css" rel="stylesheet">
 </head>
+<body>
